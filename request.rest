@@ -29,3 +29,37 @@ Content-Type: application/json
   "title": "Updated Post Title",
   "content": "Updated content!"
 }
+
+### ------------------------
+### COMMENTS API
+### ------------------------
+
+### Create a comment
+POST http://localhost:3000/comments
+Content-Type: application/json
+
+{
+  "postId": "<PUT_POST_ID_HERE>",
+  "userId": "Liam",
+  "content": "Good Job!"
+}
+
+### Get all comments
+GET http://localhost:3000/comments
+
+### Get comment by ID
+GET http://localhost:3000/comments/<PUT_COMMENT_ID_HERE>
+
+### Get comments for a specific post
+GET http://localhost:3000/comments/post/<PUT_POST_ID_HERE>
+
+### Update a comment by ID
+PUT http://localhost:3000/comments/<PUT_COMMENT_ID_HERE>
+Content-Type: application/json
+
+{
+  "content": "Updated comment content!"
+}
+
+### Delete a comment by ID
+DELETE http://localhost:3000/comments/<PUT_COMMENT_ID_HERE>

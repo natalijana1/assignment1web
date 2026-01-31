@@ -40,10 +40,10 @@ class BaseController {
     };
 
     async create(req: Request, res: Response) {
-        const movieData = req.body;
-        console.log(movieData);
+        const objectData = req.body;
+        console.log(objectData);
         try {
-            const data = await this.model.create(movieData);
+            const data = await this.model.create(objectData);
             res.status(201).json(data);
         } catch (err) {
             console.error(err);
