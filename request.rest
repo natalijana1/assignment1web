@@ -1,0 +1,31 @@
+### ------------------------
+### POSTS API
+### ------------------------
+
+### Create a new post
+POST http://localhost:3000/post
+Content-Type: application/json
+
+{
+  "title": "First assignment",
+  "content": "WOW!",
+  "sender": "Natali"
+}
+
+### Get all posts
+GET http://localhost:3000/post
+
+### Get post by ID
+GET http://localhost:3000/post/<PUT_POST_ID_HERE>
+
+### Get posts by sender
+GET http://localhost:3000/post?sender=<PUT_SENDER_HERE>
+
+### Update a post by ID
+PUT http://localhost:3000/post/<PUT_POST_ID_HERE>
+Content-Type: application/json
+
+{
+  "title": "Updated Post Title",
+  "content": "Updated content!"
+}
