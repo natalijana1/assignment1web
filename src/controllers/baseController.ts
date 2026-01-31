@@ -38,5 +38,43 @@ class BaseController {
             res.status(500).send("Error retrieving object by ID");
         }
     };
+
+    async create(req: Request, res: Response) {
+        const movieData = req.body;
+        console.log(movieData);
+        try {
+            const data = await this.model.create(movieData);
+            res.status(201).json(data);
+        } catch (err) {
+            console.error(err);
+            res.status(500).send("Error creating object");
+        }
+    };
+
+    async del(req: Request, res: Response) {
+        const id = req.params.id;
+        try {
+            const deletedData = await this.model.findByIdAndDelete(id);
+            res.status(200).json(deletedData);
+            console.log("delete data -----" + deletedData);
+        } catch (err) {
+            console.error(err);
+            res.status(500).send("Error deleting object");
+        }
+    };
+
+    async update(req: Request, res: Response) {
+        const id = req.params.id;
+        const updatedData = req.body;
+        try {
+            const data = await this.model.findByIdAndUpdate(id, updatedData, {
+                new: true,
+            });
+            res.json(data);
+        } catch (err) {
+            console.error(err);
+            res.status(500).send("Error updating object");
+        }
+    };
 };
 export default BaseController
